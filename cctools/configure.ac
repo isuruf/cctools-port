@@ -243,12 +243,10 @@ AC_CHECK_FUNC([write64])
 
 ### Check for __cxa_demangle in various C++ ABI libs ###
 
-AC_CHECK_LIB([c++abi],[__cxa_demangle],[CXXABI_LIB=-lc++abi],[
-  AC_CHECK_LIB([c++],[__cxa_demangle],[CXXABI_LIB=-lc++],[
+AC_CHECK_LIB([c++],[__cxa_demangle],[CXXABI_LIB=-lc++],[
     AC_CHECK_LIB([supc++],[__cxa_demangle],[CXXABI_LIB=-lsupc++],[
       AC_CHECK_LIB([stdc++],[__cxa_demangle],[CXXABI_LIB=-lstdc++],[exit 1])
     ])
-  ])
 ])
 
 AC_SUBST(CXXABI_LIB)
